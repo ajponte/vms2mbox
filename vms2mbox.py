@@ -14,7 +14,7 @@ import inspect
 import os
 import re
 import sys
-import scanner
+
 
 #####################################################
 # Quick and dirty lambda functions to get user input
@@ -26,7 +26,7 @@ def getInputFile(fileName):
     file = None
     try:
         file = open(fileName)
-    except IOError:
+    except FileNotFoundError:
         print("Can not find ", fileName)
     return file
     
@@ -34,7 +34,7 @@ def getInputFile(fileName):
 	
 def convert():
     """Main convert function.  Will convert the file to mbx"""
-    vmsFile = getInputFile(getFileName)
+    vmsFile = getInputFile(getFileName())
     #Still needs methods for conversion
     return None
 def main():
